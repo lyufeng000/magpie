@@ -209,6 +209,7 @@ func plainTitlebar(w *application.WebviewWindow) {
 	application.InvokeSync(func() {
 		if p := w.NativeWindow(); p != nil {
 			C.insetLights(p)
+			edgeHandles(p) // the page covers the frame's edge, so a press there resizes it
 		}
 	})
 }
